@@ -12,9 +12,7 @@ if ( !function_exists( 'is_plugin_active' ) ) {
 	require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 }
 
-if ( is_plugin_active('rest-api/plugin.php') ) {
-	new CategoryImageDataPlugin();
-}
+new CategoryImageDataPlugin();
 
 class CategoryImageDataPlugin {
 	public function __construct() {
@@ -41,6 +39,14 @@ class CategoryImageDataPlugin {
 	 *
 	 */
 	function get_custom_data($object, $field_name, $request) {
+		// get custom data from WP Custom Category Image plugin
+		if (method_exists('WPCustomCategoryImage','get_category_image')) {
+			return WPCustomCategoryImage::get_category_image(array(
+					'term_id' => $object['id'],
+					'size'    => 'full',
+			), true);
+		}
+		// get custom data from Category and Taxonomy Image
 		if (function_exists('get_wp_term_image')) {
 			return get_wp_term_image($object['id']);
 		}
