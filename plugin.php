@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name: WP REST API V2 Category Images
- * Description: Adds Category Images to WP REST API V2 JSON output.
- * Version: 0.1
- * Author: Deyan Vatsov
- * Plugin URI: https://github.com/Vatsov/wp-rest-api-v2-category-image/
+ * Plugin Name: WP REST API Category Images
+ * Description: Adds Category Images to WP REST API JSON output.
+ * Version: 0.2
+ * Author: Deyan Vatsov, Filippo Riccio
+ * Plugin URI: https://github.com/filippo-riccio/wp-rest-api-category-image/
  */
 
 if ( !function_exists( 'is_plugin_active' ) ) {
